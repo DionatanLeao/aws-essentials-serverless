@@ -13,6 +13,6 @@
     "noUnusedParameters": true,
     "resolveJsonModule": true
   },
-  "include": ["aws-lambda/src/**/*.ts"],
-  "exclude": ["node_modules", "aws-lambda/dist"]
+  "include": ["/src/**/*.ts"],
+  "exclude": ["node_modules", "/dist"]
 }
