@@ -4,13 +4,16 @@ import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 
 export const handler = async (event: APIGatewayEvent, _: Context) => {
     console.log(event);    
+
+    const id = event.pathParameters?.id;
+
     const client = new DynamoDBClient({ region: "us-east-2" });
     const dynamo = DynamoDBDocument.from(client)
 
     const result = await dynamo.get({
         TableName: "cursos",
         Key: {
-            id: "2",
+            id: id,
         }
     });
 
