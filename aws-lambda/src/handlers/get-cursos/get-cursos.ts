@@ -4,12 +4,28 @@ import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 
 export const handler = async (event: APIGatewayEvent, _: Context) => {
     console.log(event);    
+
+    const nome = event.queryStringParameters?.id;
+
     const client = new DynamoDBClient({ region: "us-east-2" });
     const dynamo = DynamoDBDocument.from(client)
 
-    const result = await dynamo.scan({
-        TableName: "cursos"
-    });
+    if (nome) {
+        const result = await dynamo.query({
+                TableName: "cursos",
+                IndexName: "nome-index",
+                KeyConditionExpression: "nome = :nome",
+                ExpressionAttributeValues: {
+                    ":nome": nome,
+                }
+            });
 
-    return result.Items;
+        return result.Items;
+    } else {
+        const result = await dynamo.scan({
+        TableName: "cursos"
+        });
+
+        return result.Items;
+    } 
 };
