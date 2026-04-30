@@ -4,6 +4,9 @@ import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb";
 
 export const handler = async (event: APIGatewayEvent, _: Context) => {
     console.log(event);    
+
+    const body = JSON.parse(event.body || "{}")
+
     const client = new DynamoDBClient({ region: "us-east-2" });
     const dynamo = DynamoDBDocument.from(client)
 
@@ -12,7 +15,7 @@ export const handler = async (event: APIGatewayEvent, _: Context) => {
         Key: { id: "3" },
         UpdateExpression: "SET nome = nome",
         ExpressionAttributeValues: {
-            ":nome": "Curso Atualizado através do path"
+            ":nome": body.nome,
         },
     });
 };
