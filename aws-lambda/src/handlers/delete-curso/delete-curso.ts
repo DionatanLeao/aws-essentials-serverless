@@ -16,4 +16,6 @@ export const handler = async (event: APIGatewayEvent, _: Context) => {
             id,
         }
     });
+
+    return { statusCode: 204 };
 };
