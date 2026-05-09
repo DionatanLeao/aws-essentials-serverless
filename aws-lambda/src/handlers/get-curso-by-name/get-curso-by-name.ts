@@ -16,5 +16,5 @@ export const handler = async (event: APIGatewayEvent, _: Context) => {
         }
     });
 
-    return result.Items
+    return { statusCode: 200, body: JSON.stringify(result.Items) };
 };
