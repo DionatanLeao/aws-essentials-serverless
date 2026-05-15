@@ -6,16 +6,19 @@ export const handler = async (event: APIGatewayEvent, _: Context) => {
     console.log(event);    
 
     const body = JSON.parse(event.body || "{}")
+    const id = event.pathParameters?.id;
 
     const client = new DynamoDBClient({ region: "us-east-2" });
     const dynamo = DynamoDBDocument.from(client)
 
     await dynamo.update({
         TableName: "cursos",
-        Key: { id: "3" },
+        Key: { id },
         UpdateExpression: "SET nome = nome",
         ExpressionAttributeValues: {
             ":nome": body.nome,
         },
     });
+
+    return { statusCode: 204 };
 };
