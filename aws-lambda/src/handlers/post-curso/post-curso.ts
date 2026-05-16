@@ -15,4 +15,6 @@ export const handler = async (event: APIGatewayEvent, _: Context) => {
         TableName: "cursos",
         Item: { ...curso, id: randomUUID() } ,
     });
+
+    return { statusCode: 204 };
 };
