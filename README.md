@@ -1,1 +1,1 @@
-First-aws-lambda
+aws-essentials-serverless
