@@ -1,0 +1,17 @@
+{
+  "name": "serveless",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tsconfig/node22": "^22.0.6",
+    "@types/aws-lambda": "^8.10.164",
+    "@types/node": "^26.6.5",
+    "typescript": "^7.0.2"
+  }
+}
