@@ -1,0 +1,34 @@
+O que é o API Gateway?
+O aws api gateway é um serviço que nos permite criar api gateway ára expor nossas apis ao público
+de forma simples, fácil e altamente escalável.
+
+Ele é um serviço totalmente gerenciado pela AWS, portanto não precisamos nos preocupar com sua
+infraestrutura e escabilidade.
+
+Tipos e api gateway
+
+Existem 3 tipos de api gateway disponíveis:
+
+- REST: O tipo mais comum que e que oferece diversas funcionalidades como autorização, api keys,
+limites de requests, etc;
+
+- HTTP: É um gateway mais simples comparado com o Rest, oferece menos funcionalidades e é reco-
+mendado para gateways que servirão mais como proxies reversos;
+
+- WebSoket: Como o próprio nome diz, é voltado para expor aplicações que necessitam do WebSoket
+para funcionarem
+É possível integrar o API Gateway da aws com qualquer tipo de aplicação web, como funções lambda,
+containers e servidores;
+
+Funcionalidades:
+Existem diversas funcionalidades que os api gateway oferecem:
+
+- Cache de respostas para aumentar a velocidade da suas apis, porém com custo adicional.
+- Cross Origin Resourse Sharing (CORS) facilmente configurável;.
+- API keys para controle de aplicações clientes.
+- Validação de requisições HTTP baseado nos headers;
+- Transformação de requisição/resposta entre o cliente e nossa api;
+- autorização de usuários customizados ou integrados ao aws cognito;
+- Controle de versionamento de api;
+- Nome de domínios (DNS) customizados;
+- Integração com diversos serviços da aws, sem a necessidade de nenhuma middleware;
